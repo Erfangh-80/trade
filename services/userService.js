@@ -1,16 +1,47 @@
-import userModel from '../models/User.js';
+import UserModel from '../models/User.js';
 
-export async function insertUser(firstName, lastName, phone, email, userName, password){
-  const newUser = await userModel.create(firstName, lastName, phone, email, userName, password);
+export async function insertUser(firstName, lastName, phone, email, userName, password) {
+  const newUser = await UserModel.create(firstName, lastName, phone, email, userName, password);
   return newUser;
 }
 
 export default async function getListUser() {
-  const userList = await userModel.find();
+  const userList = await UserModel.find();
   return userList;
 }
 
 export async function FindUser(id) {
-  const user = await userModel.findById(id);
+  const user = await UserModel.findById(id);
   return user;
+}
+
+export async function UpdateUser(id, firstName, lastName, phone, email, userName, password) {
+  try{
+    const userEdit = await UserModel.findByIdAndUpdate({id}, {
+      $set: {
+        firstName : firstName,
+        lastName : lastName,
+        phone : phone,
+        email : email,
+        userName : userName,
+        password : password,
+      }
+    });
+    return userEdit;
+  }catch(err){
+    return err;
+  }
+  
+}
+
+
+export async function DeleteUser(id){
+  try {
+    
+    const deleteUser = await UserModel.findByIdAndDelete(id);
+    return deleteUser;
+
+  } catch (error) {
+    return error;
+  }
 }
