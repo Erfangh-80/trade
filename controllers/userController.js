@@ -58,6 +58,20 @@ class UserController {
       res.status(404).json({message : 'چنین شخصی پیدا نشد'});
     }
   }
+
+  async Login(req,res){
+    try {
+      const {userName, password} = req.body;
+      const status = await Services.LoginUser(userName, password);
+      if(status == 400){
+        res.status(400).json({message : 'نام کاربری یا رمز عبور اشتباه است'})
+      }else{
+        res.status(200).json({message : 'شما وارد شدید'})
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 

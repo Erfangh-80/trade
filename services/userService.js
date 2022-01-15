@@ -1,4 +1,5 @@
 import UserModel from '../models/User.js';
+import bcryptjs from 'bcryptjs'
 
 export async function insertUser(firstName, lastName, phone, email, userName, password) {
   const newUser = await UserModel.create(firstName, lastName, phone, email, userName, password);
@@ -29,7 +30,7 @@ export async function UpdateUser(id, firstName, lastName, phone, email, userName
     });
     return userEdit;
   }catch(err){
-    return err;
+    console.log(err);
   }
   
 }
@@ -42,6 +43,23 @@ export async function DeleteUser(id){
     return deleteUser;
 
   } catch (error) {
-    return error;
+    console.log(error);
+  }
+}
+
+export async function LoginUser(userName , password){
+  try {
+    const user = await UserModel.findOne(userName);
+    if(!user){
+      return 400;
+    }
+    const checkPassword = await bcryptjs.compare(password, User.password);
+    if (!checkPassword){
+      return 400;
+    }
+    return 200;
+
+  } catch (error) {
+    console.log(error);
   }
 }
