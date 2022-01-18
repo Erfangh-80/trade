@@ -1,11 +1,16 @@
-import mongoose, { Types } from 'mongoose';
+import  mongoose  from 'mongoose';
 
 const Schema = mongoose.Schema;
 
 const dayHistory = new Schema({
   symbolId : {
-    type : Types.ObjectId,
+    type : Number,
     ref : 'Symbol',
+    required : true
+  },
+  userId : {
+    type : Number,
+    ref : 'User',
     required : true
   },
   toDay : {
