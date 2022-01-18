@@ -36,10 +36,10 @@ class dayHistoryController {
     try {
       const historyDate = await Services.findDayHistory(date);
 
-      if (dayHistory.length == 0) {
+      if (historyDate.length == 0) {
         res.status(200).json({ message: 'هیچ تاریخچه ای وجود ندارد' })
       }
-      res.status(200).json(dayHistory);
+      res.status(200).json(historyDate);
 
     } catch (error) {
       res.status(404).json({ message: error.message })
@@ -53,16 +53,14 @@ class dayHistoryController {
 
     try {
       const userHistory = await Services.findUserHistory(userid);
-      if (dayHistory.length == 0) {
+      if (userHistory.length == 0) {
         res.status(200).json({ message: 'هیچ تاریخچه ای وجود ندارد' })
       }
-      res.status(200).json(dayHistory);
+      res.status(200).json(userHistory);
 
     } catch (error) {
       res.status(404).json({ message: error.message })
     }
-
-
   }
 }
 
