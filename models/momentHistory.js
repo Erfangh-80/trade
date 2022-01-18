@@ -1,15 +1,15 @@
-import mongoose, { Types } from 'mongoose';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
 const momentHistory = new Schema({
   symbolId : {
-    type : Types.ObjectId,
+    type : Number,
     ref : 'Symbol',
     required : true
   },
   userId : {
-    type : Types.ObjectId,
+    type : Number,
     ref : 'User',
     required : true
   },
