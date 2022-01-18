@@ -13,7 +13,7 @@ const momentHistory = new Schema({
     ref : 'User',
     required : true
   },
-  toDay : {
+  momentDate : {
     type : Date,
     required : true,
     default : Date.now(),
