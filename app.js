@@ -7,6 +7,7 @@ import connectionDB from "./config/db.js";
 import userRoute from "./routes/userRoute.js";
 import dayHistoryRoute from "./routes/dayHistoryRoute.js";
 import momentHistoryRoute from "./routes/momentHistoryRoute.js"
+import symbolRoute from "./routes/symbolRoute.js";
 
 const app = express();
 
@@ -23,5 +24,6 @@ connectionDB();
 app.use('/users', userRoute);
 app.use("/dayHistory", dayHistoryRoute);
 app.use("/momentHistory", momentHistoryRoute);
+app.use("/symbol", symbolRoute);
 
 app.listen(Port, () => { console.log(`running server https://localhost:${Port}`) });
