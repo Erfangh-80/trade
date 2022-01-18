@@ -25,7 +25,7 @@ export default async function getHistory() {
 
 export async function findDayHistory(date) {
   try {
-    const dateHistory = await dayHistoryModel.find({ date });
+    const dateHistory = await dayHistoryModel.find({ toDay : date});
     return dateHistory;
 
   } catch (error) {
@@ -36,7 +36,7 @@ export async function findDayHistory(date) {
 
 export async function findUserHistory(id) {
   try {
-    const userHistory = await dayHistoryModel.find({ userId: id});
+    const userHistory = await dayHistoryModel.find({ userId : id});
     return userHistory;
   } catch (error) {
     console.log(error);
