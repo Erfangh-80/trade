@@ -1,3 +1,4 @@
+import momentHistory from "../models/momentHistory.js";
 import momentServices from "../services/momentHistoryService.js"
 
 class momentHistoryController {
@@ -32,3 +33,6 @@ class momentHistoryController {
 
   
 }
+
+
+export default momentHistoryController;
