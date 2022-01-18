@@ -49,13 +49,15 @@ class UserController {
   async DeleteUser(req, res){
     try {
       const deleteUser = await Services.DeleteUser(req.params.id);
+      
       if (deleteUser == null){
         res.status(404).json({message : 'چنین شخصی پیدا نشد'});
       }
-      res.status(200).json({message : 'با موفقیت حذف شد'})
+      res.status(200).json({message : 'با موفقیت حذف شد'});
+
     } catch (error) {
       console.log(error);
-      res.status(404).json({message : 'چنین شخصی پیدا نشد'});
+      res.status(404).json({message : error.message});
     }
   }
 
