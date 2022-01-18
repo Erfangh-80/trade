@@ -20,7 +20,7 @@ class UserController {
   async UserList(req, res) {
     const userList = await Services.getListUser();
     if (userList.length == 0) {
-      return res.status(200).json({ message: 'کاربری پیدا شند' });
+      return res.status(200).json({ message: 'کاربری پیدا نشد' });
     }
     return res.status(200).json(userList);
   }
