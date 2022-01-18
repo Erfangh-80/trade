@@ -8,6 +8,11 @@ const momentHistory = new Schema({
     ref : 'Symbol',
     required : true
   },
+  userId : {
+    type : Types.ObjectId,
+    ref : 'User',
+    required : true
+  },
   toDay : {
     type : Date,
     required : true,
