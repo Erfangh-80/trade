@@ -1,7 +1,7 @@
 import orderModel from "../models/orders.js"
 
-export async function insertOrder(deliveryTime, userId, symbolId){
-  
+export async function insertOrder(deliveryTime, userId, symbolId) {
+
   try {
     const order = await orderModel.create(deliveryTime, userId, symbolId);
     return order;
@@ -13,9 +13,9 @@ export async function insertOrder(deliveryTime, userId, symbolId){
 
 }
 
-export async function getOrder(){
+export default async function getOrder() {
   try {
-    
+
     const allOrder = await orderModel.find();
     return allOrder;
 
@@ -24,20 +24,20 @@ export async function getOrder(){
   }
 }
 
-export async function findOrder(id){
+export async function findOrder(id) {
   try {
-    
-    const order = await orderModel.findById({_id : id});
+
+    const order = await orderModel.findById({ _id: id });
     return order;
   } catch (error) {
     console.log(error);
   }
 }
 
-export async function getOrderUser(userid){
+export async function getOrderUser(userid) {
   try {
-    
-    const userOrder = await orderModel.find({userId : userid});
+
+    const userOrder = await orderModel.find({ userId: userid });
     return userOrder;
 
   } catch (error) {
