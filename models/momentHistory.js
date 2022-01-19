@@ -4,12 +4,12 @@ const Schema = mongoose.Schema;
 
 const momentHistory = new Schema({
   symbolId : {
-    type : Number,
+    type : mongoose.Schema.Types.ObjectId,
     ref : 'Symbol',
     required : true
   },
   userId : {
-    type : Number,
+    type : mongoose.Schema.Types.ObjectId,
     ref : 'User',
     required : true
   },
