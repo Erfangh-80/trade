@@ -8,7 +8,7 @@ const trades = new Schema({
     ref : 'User',
     required : true
   },
-  shareCode : {
+  symbolId : {
     type : mongoose.Types.ObjectId,
     ref : 'Symbol',
     required : true
