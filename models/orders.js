@@ -1,4 +1,4 @@
-import mongoose, { Types } from 'mongoose';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -10,12 +10,12 @@ const order = new Schema({
     default : Date.now(),
   },
   userId : {
-    type : Types.ObjectId,
+    type : mongoose.Types.ObjectId,
     ref : 'User',
     required : true
   },
   symbolId : {
-    type : Types.ObjectId,
+    type : mongoose.Types.ObjectId,
     ref : 'Symbol',
     required : true
   },
