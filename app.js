@@ -8,7 +8,8 @@ import userRoute from "./routes/userRoute.js";
 import dayHistoryRoute from "./routes/dayHistoryRoute.js";
 import momentHistoryRoute from "./routes/momentHistoryRoute.js"
 import symbolRoute from "./routes/symbolRoute.js";
-import orderRoute from "./routes/orderRoute.js"
+import orderRoute from "./routes/orderRoute.js";
+import tradeRoute from "./routes/tradeRoute.js";
 
 
 const app = express();
@@ -28,5 +29,6 @@ app.use("/dayHistory", dayHistoryRoute);
 app.use("/momentHistory", momentHistoryRoute);
 app.use("/symbol", symbolRoute);
 app.use("/order", orderRoute);
+app.use("/trade", tradeRoute);
 
 app.listen(Port, () => { console.log(`running server https://localhost:${Port}`) });
